@@ -4,17 +4,13 @@ import { getServerSession } from "next-auth";
 import React from "react";
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
-  const session: any = await getServerSession(authOptions);
+  const session = await getServerSession(authOptions);
 
   if (!session) {
     return <Auth />;
   }
 
-  return (
-    <div>
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 };
 
 export default Layout;
